@@ -5,10 +5,7 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
@@ -20,6 +17,7 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.artembotnev.roman_numerals_converter.theme.AppTheme
+import com.artembotnev.roman_numerals_converter.theme.textError
 import kotlinx.coroutines.FlowPreview
 
 class ConvertActivity : AppCompatActivity() {
@@ -30,12 +28,12 @@ class ConvertActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-//            AppTheme(darkTheme = true) {
-//                BuildContent()
-//            }
-            AppTheme {
+            AppTheme(darkTheme = true) {
                 BuildContent()
             }
+//            AppTheme {
+//                BuildContent()
+//            }
         }
     }
 
@@ -78,7 +76,15 @@ class ConvertActivity : AppCompatActivity() {
                 ),
                 isError = state.romanInputError
             )
+            if (state.romanInputError) {
+                Text(
+                    text = "Use only M, C, D, X, L, V, I letter",
+                    style = textError
+                )
+            }
+
             Spacer(modifier = Modifier.size(16.dp))
+
             OutlinedTextField(
                 value = state.arabicText,
                 onValueChange = viewModel::updateArabicInput,
@@ -94,6 +100,12 @@ class ConvertActivity : AppCompatActivity() {
                 ),
                 isError = state.arabicInputError
             )
+            if (state.arabicInputError) {
+                Text(
+                    text = "Use only numbers",
+                    style = textError
+                )
+            }
         }
     }
 
