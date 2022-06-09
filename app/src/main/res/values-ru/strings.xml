@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Конвертер римских цифр</string>
+    <string name="top_app_title">Конвертер</string>
+    <string name="text_roman">Римские</string>
+    <string name="text_arabic">Арабские</string>
+    <string name="error_roman">Используйте только латинские буквы M, C, D, X, L, V, I</string>
+    <string name="error_arabic">Используйте только цифры</string>
+</resources>

@@ -1,3 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">RomanNumeralsConverter</string>
+    <string name="app_name">Roman Numerals Converter</string>
+    <string name="top_app_title">Converter</string>
+    <string name="text_roman">Roman</string>
+    <string name="text_arabic">Arabic</string>
+    <string name="error_roman">Use only M, C, D, X, L, V, I letter</string>
+    <string name="error_arabic">Use only numbers</string>
 </resources>
