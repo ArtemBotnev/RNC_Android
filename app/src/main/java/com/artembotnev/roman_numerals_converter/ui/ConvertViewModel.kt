@@ -10,6 +10,8 @@ import kotlinx.coroutines.launch
 import java.lang.NumberFormatException
 
 private const val INPUT_DELAY = 350L
+private const val ROMAN_REGEX_PATTERN = "[^MCDXLVI]"
+private const val NUMERAL_REGEX_PATTERN = "[^0-9]"
 
 @FlowPreview
 class ConvertViewModel : ViewModel() {
@@ -60,7 +62,7 @@ class ConvertViewModel : ViewModel() {
     }
 
     private fun validateRomanInput(text: String) {
-        val notRomanNumeralSymbol = text.contains(regex = Regex("[^MCDXLVI]"))
+        val notRomanNumeralSymbol = text.contains(regex = Regex(ROMAN_REGEX_PATTERN))
 
         viewModelScope.launch {
             _viewState.emit(
@@ -70,7 +72,7 @@ class ConvertViewModel : ViewModel() {
     }
 
     private fun validateArabicInput(text: String) {
-        val notNumeralSymbol = text.contains(regex = Regex("[^0-9]"))
+        val notNumeralSymbol = text.contains(regex = Regex(NUMERAL_REGEX_PATTERN))
 
         viewModelScope.launch {
             _viewState.emit(

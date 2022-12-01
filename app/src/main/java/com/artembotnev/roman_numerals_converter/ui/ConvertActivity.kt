@@ -10,30 +10,31 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import com.artembotnev.roman_numerals_converter.R
 import com.artembotnev.roman_numerals_converter.theme.AppTheme
 import com.artembotnev.roman_numerals_converter.theme.textError
 import kotlinx.coroutines.FlowPreview
 
 class ConvertActivity : AppCompatActivity() {
 
+    @OptIn(FlowPreview::class)
     private val viewModel = ConvertViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
-            AppTheme(darkTheme = true) {
+            AppTheme {
                 BuildContent()
             }
-//            AppTheme {
-//                BuildContent()
-//            }
         }
     }
 
@@ -42,7 +43,9 @@ class ConvertActivity : AppCompatActivity() {
         Scaffold(
             topBar = {
                 TopAppBar(
-                    title = { Text(text = "RomanNumeralsConverter") }
+                    title = {
+                        Text(text = stringResource(R.string.top_app_title), color = Color.Black)
+                    }
                 )
             },
             content = { InputTextFields() }
@@ -64,7 +67,7 @@ class ConvertActivity : AppCompatActivity() {
                 onValueChange = viewModel::updateRomanInput,
                 label = {
                     Text(
-                        text = "Roman",
+                        text = stringResource(R.string.text_roman),
                         fontFamily = FontFamily.SansSerif,
                         fontStyle = FontStyle.Italic,
                     )
@@ -78,7 +81,7 @@ class ConvertActivity : AppCompatActivity() {
             )
             if (state.romanInputError) {
                 Text(
-                    text = "Use only M, C, D, X, L, V, I letter",
+                    text = stringResource(R.string.error_roman),
                     style = textError
                 )
             }
@@ -90,7 +93,7 @@ class ConvertActivity : AppCompatActivity() {
                 onValueChange = viewModel::updateArabicInput,
                 label = {
                     Text(
-                        text ="Arabic",
+                        text = stringResource(R.string.text_arabic),
                         fontFamily = FontFamily.SansSerif,
                         fontStyle = FontStyle.Italic,
                     )
@@ -102,20 +105,10 @@ class ConvertActivity : AppCompatActivity() {
             )
             if (state.arabicInputError) {
                 Text(
-                    text = "Use only numbers",
+                    text = stringResource(R.string.error_arabic),
                     style = textError
                 )
             }
         }
     }
-
-//    @Preview(showBackground = true, name = "Main preview")
-//    @Composable
-//    fun CallCardPreview() {
-//        AppTheme(darkTheme = true) {
-//            BuildContent()
-//        }
-//    }
-
-    //                error = "Use only M, C, D, X, L, V, I letter"
 }
