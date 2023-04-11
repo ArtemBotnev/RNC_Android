@@ -10,8 +10,8 @@ android {
         applicationId "com.artembotnev.roman_numerals_converter"
         minSdk 21
         targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -34,22 +34,21 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion "1.1.1"
+        kotlinCompilerExtensionVersion "1.4.0"
     }
 }
 
 dependencies {
-    implementation 'androidx.core:core-ktx:1.9.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.7.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.10.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
 
     // Compose UI
     implementation "androidx.compose.ui:ui:$compose_version"
     implementation "androidx.compose.material:material:$compose_version"
     implementation "androidx.compose.ui:ui-tooling:$compose_version"
     implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
-    implementation 'androidx.activity:activity-compose:1.7.0-alpha02'
+    implementation 'androidx.activity:activity-compose:1.7.0'
     implementation "com.google.accompanist:accompanist-systemuicontroller:0.17.0"
 
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"

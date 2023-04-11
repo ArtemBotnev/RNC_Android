@@ -6,6 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
@@ -45,7 +47,8 @@ class ConvertActivity : AppCompatActivity() {
                 TopAppBar(
                     title = {
                         Text(text = stringResource(R.string.top_app_title), color = Color.Black)
-                    }
+                    },
+//                    actions = { BuildRateButton() }
                 )
             },
             content = { InputTextFields() }
@@ -109,6 +112,18 @@ class ConvertActivity : AppCompatActivity() {
                     style = textError
                 )
             }
+        }
+    }
+
+    @OptIn(FlowPreview::class)
+    @Composable
+    private fun BuildRateButton() {
+        IconButton(
+            onClick = {
+                viewModel.showPlayMarketPageIntent?.let { startActivity(it) }
+            }
+        ) {
+            Icon(imageVector = Icons.Filled.Star, contentDescription = null)
         }
     }
 }

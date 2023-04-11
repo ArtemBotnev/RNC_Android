@@ -1,9 +1,13 @@
 package com.artembotnev.roman_numerals_converter.ui
 
 import RomanNumeralConverter
+import android.content.ActivityNotFoundException
+import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.artembotnev.roman_numerals_converter.APP_PLAY_MARKET_PAGE
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -33,6 +37,13 @@ class ConvertViewModel : ViewModel() {
     private val romanInputFlow = MutableSharedFlow<String>()
 
     val viewState: StateFlow<ConverterViewState> = _viewState
+
+    val showPlayMarketPageIntent: Intent?
+        get() = try {
+            Intent(Intent.ACTION_VIEW, Uri.parse(APP_PLAY_MARKET_PAGE))
+        } catch (e: ActivityNotFoundException) {
+            null
+        }
 
     init {
         with(viewModelScope) {
