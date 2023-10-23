@@ -1,16 +1,16 @@
 buildscript {
     ext {
         kotlin_version =  '1.8.0'
-        coroutines_version = '1.6.4'
-        compose_version = '1.4.1'
+        coroutines_version = '1.7.1'
+        compose_version = '1.5.4'
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools:r8:8.0.40'
-        classpath 'com.android.tools.build:gradle:7.4.2'
+        classpath 'com.android.tools:r8:8.1.56'
+        classpath 'com.android.tools.build:gradle:8.1.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "com.google.guava:guava:30.1.1-jre"
     }
