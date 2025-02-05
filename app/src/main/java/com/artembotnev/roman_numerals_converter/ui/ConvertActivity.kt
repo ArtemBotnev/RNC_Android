@@ -6,8 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Star
+//import androidx.compose.material.icons.Icons
+//import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
@@ -84,6 +84,8 @@ class ConvertActivity : AppCompatActivity() {
             )
             if (state.romanInputError) {
                 Text(
+                    modifier = Modifier
+                        .padding(start = 16.dp, end = 16.dp, top = 4.dp),
                     text = stringResource(R.string.error_roman),
                     style = textError
                 )
@@ -108,6 +110,8 @@ class ConvertActivity : AppCompatActivity() {
             )
             if (state.arabicInputError) {
                 Text(
+                    modifier = Modifier
+                        .padding(start = 16.dp, end = 16.dp, top = 4.dp),
                     text = stringResource(R.string.error_arabic),
                     style = textError
                 )
@@ -118,12 +122,12 @@ class ConvertActivity : AppCompatActivity() {
     @OptIn(FlowPreview::class)
     @Composable
     private fun BuildRateButton() {
-        IconButton(
-            onClick = {
-                viewModel.showPlayMarketPageIntent?.let { startActivity(it) }
-            }
-        ) {
-            Icon(imageVector = Icons.Filled.Star, contentDescription = null)
-        }
+//        IconButton(
+//            onClick = {
+//                viewModel.showPlayMarketPageIntent?.let { startActivity(it) }
+//            }
+//        ) {
+//            Icon(imageVector = Icons.Filled.Star, contentDescription = null)
+//        }
     }
 }
